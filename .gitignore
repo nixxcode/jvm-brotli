@@ -1,0 +1,14 @@
+/.vagrant
+/.idea
+/.vscode
+target
+build
+*.iml
+dependency-reduced-pom.xml
+tmplib
+.DS_Store
+hs_err_pid*.log
+*.bro
+*.brotli
+*.versionsBackup
+*.releaseBackup
