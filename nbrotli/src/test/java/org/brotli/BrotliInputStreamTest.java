@@ -6,10 +6,7 @@ package org.brotli;/* Copyright 2017 Google Inc. All Rights Reserved.
 
 import static org.junit.Assert.assertEquals;
 
-import org.brotli.integration.BrotliJniTestBase;
-import org.brotli.integration.BundleHelper;
 import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;

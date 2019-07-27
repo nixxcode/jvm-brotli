@@ -4,9 +4,9 @@
    See file LICENSE for detail or copy at https://opensource.org/licenses/MIT
 */
 
-package org.brotli.integration;
+package org.brotli;
 
-import org.brotli.dec.BrotliInputStream;
+import org.brotli.wrapper.dec.BrotliInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FilterInputStream;
@@ -55,7 +55,6 @@ public class BundleChecker implements Runnable {
     return crc;
   }
 
-  @Override
   public void run() {
     String entryName = "";
     ZipInputStream zis = new ZipInputStream(input);

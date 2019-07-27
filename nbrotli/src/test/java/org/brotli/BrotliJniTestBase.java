@@ -1,4 +1,4 @@
-package org.brotli.integration;
+package org.brotli;
 
 /**
  * Optionally loads brotli JNI wrapper native library.

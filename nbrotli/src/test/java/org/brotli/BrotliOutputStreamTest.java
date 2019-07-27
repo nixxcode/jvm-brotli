@@ -1,19 +1,17 @@
 package org.brotli;
 
 import static org.junit.Assert.assertEquals;
-import org.brotli.integration.BrotliJniTestBase;
-import org.brotli.integration.BundleHelper;
-import org.brotli.wrapper.dec.BrotliInputStream;
 
 import java.io.*;
 import java.net.URL;
 import java.util.List;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.brotli.wrapper.enc.BrotliOutputStream;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.AllTests;
+import org.brotli.wrapper.enc.BrotliOutputStream;
+import org.brotli.wrapper.dec.BrotliInputStream;
 
 /** Tests for {@link org.brotli.wrapper.enc.BrotliOutputStream}. */
 @RunWith(AllTests.class)
