@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-project (nbrotli)
+project (jvmbrotli)
 
 find_package(Java REQUIRED COMPONENTS Development)
 find_package(JNI REQUIRED)
