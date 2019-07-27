@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.nixx.nbrotli</groupId>
-        <artifactId>nbrotli-natives</artifactId>
+        <groupId>org.nixx.jvmbrotli</groupId>
+        <artifactId>jvmbrotli-natives</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>nbrotli-win32-x86-amd64</artifactId>
+    <artifactId>jvmbrotli-win32-x86-amd64</artifactId>
     <packaging>jar</packaging>
 
     <build>
