@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.nixxcode.jvmbrotli.common.BrotliLoader;
 import com.nixxcode.jvmbrotli.common.NativeUtils;
+import com.nixxcode.jvmbrotli.enc.Encoder;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.junit.Before;
@@ -89,7 +90,8 @@ public class BrotliOutputStreamTest extends BrotliJniTestBase {
     }
 
     ByteArrayOutputStream dst = new ByteArrayOutputStream();
-    OutputStream encoder = new BrotliOutputStream(dst);
+    Encoder.Parameters params = new Encoder.Parameters().setQuality(2);
+    OutputStream encoder = new BrotliOutputStream(dst, params);
     try {
       switch (mode) {
         case WRITE_ALL:
