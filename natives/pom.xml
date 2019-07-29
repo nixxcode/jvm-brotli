@@ -13,8 +13,77 @@
     <artifactId>jvmbrotli-natives</artifactId>
     <packaging>pom</packaging>
 
-    <modules>
-        <module>win32-x86-amd64</module>
-    </modules>
+    <profiles>
+
+        <!--
+        Using the os/arch names as Java Native Access (jna) lib does - so to choose as module names.
+        See also: https://github.com/java-native-access/jna
+        -->
+
+        <profile>
+            <id>win32-x86</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                    <arch>x86</arch>
+                </os>
+            </activation>
+            <modules>
+                <module>win32-x86</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>win32-x86-amd64</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <modules>
+                <module>win32-x86-amd64</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>darwin-x86-amd64</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <modules>
+                <module>darwin-x86-amd64</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>linux-x86-amd64</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <modules>
+                <module>linux-x86-amd64</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>linux-arm32-vfp-hflt</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <arch>arm</arch>
+                </os>
+            </activation>
+            <modules>
+                <module>linux-arm32-vfp-hflt</module>
+            </modules>
+        </profile>
+
+    </profiles>
 
 </project>
