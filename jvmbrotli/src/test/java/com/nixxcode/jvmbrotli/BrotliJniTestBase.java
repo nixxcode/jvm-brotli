@@ -1,4 +1,4 @@
-package org.brotli;
+package com.nixxcode.jvmbrotli;
 
 /**
  * Optionally loads brotli JNI wrapper native library.

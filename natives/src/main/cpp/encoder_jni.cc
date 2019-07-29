@@ -41,7 +41,7 @@ extern "C" {
  * @returns direct ByteBuffer if directBufferSize is not 0; otherwise null
  */
 JNIEXPORT jobject JNICALL
-Java_org_brotli_wrapper_enc_EncoderJNI_nativeCreate(
+Java_com_nixxcode_jvmbrotli_enc_EncoderJNI_nativeCreate(
     JNIEnv* env, jobject /*jobj*/, jlongArray ctx) {
   bool ok = true;
   EncoderHandle* handle = nullptr;
@@ -108,7 +108,7 @@ Java_org_brotli_wrapper_enc_EncoderJNI_nativeCreate(
  *                     0 to process further previous input
  */
 JNIEXPORT void JNICALL
-Java_org_brotli_wrapper_enc_EncoderJNI_nativePush(
+Java_com_nixxcode_jvmbrotli_enc_EncoderJNI_nativePush(
     JNIEnv* env, jobject /*jobj*/, jlongArray ctx, jint input_length) {
   jlong context[5];
   env->GetLongArrayRegion(ctx, 0, 5, context);
@@ -159,7 +159,7 @@ Java_org_brotli_wrapper_enc_EncoderJNI_nativePush(
  *          any further invocation; null in case of error
  */
 JNIEXPORT jobject JNICALL
-Java_org_brotli_wrapper_enc_EncoderJNI_nativePull(
+Java_com_nixxcode_jvmbrotli_enc_EncoderJNI_nativePull(
     JNIEnv* env, jobject /*jobj*/, jlongArray ctx) {
   jlong context[5];
   env->GetLongArrayRegion(ctx, 0, 5, context);
@@ -180,7 +180,7 @@ Java_org_brotli_wrapper_enc_EncoderJNI_nativePull(
  * @param ctx {in_cookie} tuple
  */
 JNIEXPORT void JNICALL
-Java_org_brotli_wrapper_enc_EncoderJNI_nativeDestroy(
+Java_com_nixxcode_jvmbrotli_enc_EncoderJNI_nativeDestroy(
     JNIEnv* env, jobject /*jobj*/, jlongArray ctx) {
   jlong context[2];
   env->GetLongArrayRegion(ctx, 0, 2, context);

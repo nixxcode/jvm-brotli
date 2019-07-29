@@ -4,7 +4,7 @@
    See file LICENSE for detail or copy at https://opensource.org/licenses/MIT
 */
 
-package org.brotli.wrapper.common;
+package com.nixxcode.jvmbrotli.common;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -4,7 +4,7 @@
    See file LICENSE for detail or copy at https://opensource.org/licenses/MIT
 */
 
-package org.brotli;
+package com.nixxcode.jvmbrotli;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

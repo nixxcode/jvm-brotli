@@ -12,7 +12,7 @@ endif()
 include_directories(${JNI_INCLUDE_DIRS})
 include_directories(${JNI_LIBRARIES})
 
-SET (BROTLI_INCLUDE_DIRS "brotli/include" "natives/src/main/cpp/include" "brotli/common")
+SET (BROTLI_INCLUDE_DIRS "brotli/include" "brotli/common")
 include_directories(${BROTLI_INCLUDE_DIRS})
 
 SET (LIB_TYPE SHARED)

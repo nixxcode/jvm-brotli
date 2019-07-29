@@ -4,9 +4,9 @@
    See file LICENSE for detail or copy at https://opensource.org/licenses/MIT
 */
 
-package org.brotli;
+package com.nixxcode.jvmbrotli;
 
-import org.brotli.wrapper.dec.BrotliInputStream;
+import com.nixxcode.jvmbrotli.dec.BrotliInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FilterInputStream;
