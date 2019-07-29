@@ -13,13 +13,9 @@
     <artifactId>jvmbrotli</artifactId>
     <packaging>jar</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.nixxcode.jvmbrotli</groupId>
-            <artifactId>jvmbrotli-win32-x86-amd64</artifactId>
-            <version>0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <properties>
+        <jvmbrotli-version>0.1-SNAPSHOT</jvmbrotli-version>
+    </properties>
 
     <build>
         <plugins>
@@ -37,5 +33,109 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>win32-x86-amd64</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.nixxcode.jvmbrotli</groupId>
+                    <artifactId>jvmbrotli-win32-x86-amd64</artifactId>
+                    <version>${jvmbrotli-version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>win32-x86</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                    <arch>x86</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.nixxcode.jvmbrotli</groupId>
+                    <artifactId>jvmbrotli-win32-x86</artifactId>
+                    <version>${jvmbrotli-version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>darwin-x86-amd64</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.nixxcode.jvmbrotli</groupId>
+                    <artifactId>jvmbrotli-darwin-x86-amd64</artifactId>
+                    <version>${jvmbrotli-version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>linux-x86-amd64</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.nixxcode.jvmbrotli</groupId>
+                    <artifactId>jvmbrotli-linux-x86-amd64</artifactId>
+                    <version>${jvmbrotli-version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>linux-x86</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <arch>x86</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.nixxcode.jvmbrotli</groupId>
+                    <artifactId>jvmbrotli-linux-x86</artifactId>
+                    <version>${jvmbrotli-version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>linux-arm32-vfp-hflt</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <arch>arm</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.nixxcode.jvmbrotli</groupId>
+                    <artifactId>jvmbrotli-linux-arm32-vfp-hflt</artifactId>
+                    <version>${jvmbrotli-version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+    </profiles>
 
 </project>
