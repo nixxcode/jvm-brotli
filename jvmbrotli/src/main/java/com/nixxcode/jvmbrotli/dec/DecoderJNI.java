@@ -4,7 +4,7 @@
    See file LICENSE for detail or copy at https://opensource.org/licenses/MIT
 */
 
-package org.brotli.wrapper.dec;
+package com.nixxcode.jvmbrotli.dec;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
