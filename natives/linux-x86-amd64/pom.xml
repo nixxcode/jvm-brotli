@@ -41,7 +41,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>build.bat</executable>
+                            <executable>build.sh</executable>
                             <workingDirectory>${project.basedir}</workingDirectory>
                         </configuration>
                     </execution>
