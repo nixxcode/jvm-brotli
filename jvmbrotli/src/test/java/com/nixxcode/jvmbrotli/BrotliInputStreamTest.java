@@ -1,8 +1,9 @@
-package com.nixxcode.jvmbrotli;/* Copyright 2017 Google Inc. All Rights Reserved.
+/* Copyright 2017 Google Inc. All Rights Reserved.
 
    Distributed under MIT license.
    See file LICENSE for detail or copy at https://opensource.org/licenses/MIT
 */
+package com.nixxcode.jvmbrotli;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,7 +13,6 @@ import java.io.InputStream;
 import java.util.List;
 
 import com.nixxcode.jvmbrotli.common.BrotliLoader;
-import com.nixxcode.jvmbrotli.common.NativeUtils;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import com.nixxcode.jvmbrotli.dec.BrotliInputStream;
