@@ -7,7 +7,6 @@ import java.net.URL;
 import java.util.List;
 
 import com.nixxcode.jvmbrotli.common.BrotliLoader;
-import com.nixxcode.jvmbrotli.common.NativeUtils;
 import com.nixxcode.jvmbrotli.enc.Encoder;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

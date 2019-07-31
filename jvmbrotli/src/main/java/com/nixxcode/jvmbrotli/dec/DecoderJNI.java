@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 /**
  * JNI wrapper for brotli decoder.
  */
-public class DecoderJNI {
+class DecoderJNI {
   private static native ByteBuffer nativeCreate(long[] context);
   private static native void nativePush(long[] context, int length);
   private static native ByteBuffer nativePull(long[] context);

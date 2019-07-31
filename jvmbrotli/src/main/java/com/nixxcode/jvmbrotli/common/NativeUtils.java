@@ -38,7 +38,7 @@ import java.util.regex.Pattern;
  * @see <a href="https://github.com/adamheinrich/native-utils">https://github.com/adamheinrich/native-utils</a>
  *
  */
-public class NativeUtils {
+class NativeUtils {
  
     /**
      * The minimum length a prefix for a file has to have according to {@link File#createTempFile(String, String)}}.

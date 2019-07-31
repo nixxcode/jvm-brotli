@@ -3,7 +3,7 @@ package com.nixxcode.jvmbrotli.common;
 import java.io.IOException;
 import java.util.Locale;
 
-import static com.nixxcode.jvmbrotli.common.ARCH.*;
+import static com.nixxcode.jvmbrotli.common.Arch.*;
 import static com.nixxcode.jvmbrotli.common.OS.*;
 
 public class BrotliLoader {
