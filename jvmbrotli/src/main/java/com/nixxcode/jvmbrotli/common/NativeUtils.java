@@ -2,7 +2,7 @@
  * Class NativeUtils is published under the The MIT License:
  *
  * Copyright (c) 2012 Adam Heinrich <adam@adamh.cz>
- * Modified for use in jvm-brotli by Dominik Petrovic (https://nixxcode.com)
+ * Modified for use in jvm-brotli by Dominik Petrovic (http://nixxcode.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,11 +22,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package com.nixxcode.jvmbrotli.common;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.*;
 import java.util.regex.Pattern;
 
 /**
@@ -37,27 +37,53 @@ import java.util.regex.Pattern;
  * @see <a href="http://adamheinrich.com/blog/2012/how-to-load-native-jni-library-from-jar">http://adamheinrich.com/blog/2012/how-to-load-native-jni-library-from-jar</a>
  * @see <a href="https://github.com/adamheinrich/native-utils">https://github.com/adamheinrich/native-utils</a>
  *
+ * MODIFICATION: I modified Adam's original code to find and delete unused library folders from previous runs.
+ * The modified code runs at the end of the loadLibraryFromJar method. It creats a lock file to "protect"
+ * our newly created temp lib while it's in use. It then runs a new method that finds any folders starting with
+ * the dirPrefix argument, checks for the presence of the lock file, then deletes the folder and all its contents
+ * if the lock file does not exist.
+ * Since the lock file itself is deleted when the process exits, this automatically flags the folder as
+ * safe to delete for our custom garbage cleaning routine.
+ *
+ * The reason for the mod, is the original code was flooding the temp directory on Windows with a new folder and a new
+ * copy of the target library for each execution. This is due to a known problem with Java still holding a lock on the
+ * Windows .dll file when deleteOnExit() is executed. This could potentially get out of hand very fast if this class
+ * is called repeatedly, in rapid succession (e.g. test execution).
+ *
+ * This version still attempts to clean up after itself where possible, but in the event of problems such as the above,
+ * subsequent runs should clean up any mess left behind by their predecessors.
+ *
+ * WARNING: It is YOUR responsibility as the caller, to provide the loadLibraryFromJar method with a unique tempDirPrefix.
+ * This is important, since the cleanUnusedCopies method uses this prefix to identify (and delete) unused directories
+ * we created on previous runs.
  */
-class NativeUtils {
- 
+public class NativeUtils {
+
     /**
      * The minimum length a prefix for a file has to have according to {@link File#createTempFile(String, String)}}.
      */
-    private static final int MIN_FILE_PREFIX_LENGTH = 3;
+    private static final int MIN_PREFIX_LENGTH = 3;
+
+    /**
+     * Temporary directory which will contain the DLLs.
+     */
+    private static File temporaryDir;
 
     /**
      * Private constructor - this class will never be instanced
      */
     private NativeUtils() {
     }
-
     /**
      * Loads library from current JAR archive
-     * 
+     *
      * The file from JAR is copied into system temporary directory and then loaded. The temporary file is deleted after
      * exiting.
      * Method uses String as filename because the pathname is "abstract", not system-dependent.
-     * 
+     *
+     * @param dirPrefix Prefix name for our folder created inside of the system temp directory.
+     *                  Should be something unique to your application, as it is used to create (and identify)
+     *                  temporary directories belonging to it. Min length: 3 characters
      * @param path The path of file inside JAR as absolute path (beginning with '/'), e.g. /package/File.ext
      * @throws IOException If temporary file creation or read/write operation fails
      * @throws IllegalArgumentException If source file (param path) does not exist
@@ -65,70 +91,107 @@ class NativeUtils {
      * (restriction of {@link File#createTempFile(java.lang.String, java.lang.String)}).
      * @throws FileNotFoundException If the file could not be found inside the JAR.
      */
-    public static void loadLibraryFromJar(String tempDirPrefix, String path) throws IOException {
+    public static void loadLibraryFromJar(String dirPrefix, String path) throws IOException {
 
-        // Check if the temp dir prefix is okay
-        if (tempDirPrefix == null || tempDirPrefix.length() < MIN_FILE_PREFIX_LENGTH) {
+        if(dirPrefix.length() < MIN_PREFIX_LENGTH) {
             throw new IllegalArgumentException("The temp dir prefix has to be at least 3 characters long.");
         }
 
         if (null == path || !path.startsWith("/")) {
             throw new IllegalArgumentException("The path has to be absolute (start with '/').");
         }
- 
+
         // Obtain filename from path
         String[] parts = path.split("/");
         String filename = (parts.length > 1) ? parts[parts.length - 1] : null;
- 
+
         // Check if the filename is okay
-        if (filename == null || filename.length() < MIN_FILE_PREFIX_LENGTH) {
+        if (filename == null || filename.length() < MIN_PREFIX_LENGTH) {
             throw new IllegalArgumentException("The filename has to be at least 3 characters long.");
         }
 
-        File tempDir = getOrCreateTempDirectory(tempDirPrefix, filename);
-        File tempFile = new File(tempDir, filename);
+        // Prepare temporary file
+        if (temporaryDir == null) {
+            temporaryDir = createTempDirectory(dirPrefix);
+            temporaryDir.deleteOnExit();
+        }
 
-        // Replace the file if it exists. This ensures we are never loading an old version of the lib
+        File temp = new File(temporaryDir, filename);
+
         try (InputStream is = NativeUtils.class.getResourceAsStream(path)) {
-            Files.copy(is, tempFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(is, temp.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            tempFile.delete();
+            temp.delete();
             throw e;
         } catch (NullPointerException e) {
-            tempFile.delete();
+            temp.delete();
             throw new FileNotFoundException("File " + path + " was not found inside JAR.");
         }
 
         try {
-            System.load(tempFile.getAbsolutePath());
-        } catch (Throwable t) {
-            throw new IOException(t.getMessage());
-        }
-    }
-
-    private static File getOrCreateTempDirectory(String tempDirPrefix, String filename) throws IOException {
-        String[] fileNameParts = filename.split(Pattern.quote("."));
-        String fileNameNoExtension = fileNameParts[0];
-
-        String implVersion = NativeUtils.class.getPackage().getImplementationVersion();
-        implVersion = implVersion != null ? implVersion : "null.version";
-        String implVersionNoPeriods = implVersion.replace(".", "-");
-
-        // Build temp directory name
-        String generatedDirName = tempDirPrefix + "-"
-                + implVersionNoPeriods + "-"
-                + fileNameNoExtension;
-
-        String systemTempDir = System.getProperty("java.io.tmpdir");
-        File tempDir = new File(systemTempDir, generatedDirName);
-
-        // Create dir if it doesn't already exist
-        if (!tempDir.exists()) {
-            if (!tempDir.mkdir()) {
-                throw new IOException("Failed to create temp directory " + tempDir.getName());
+            System.load(temp.getAbsolutePath());
+        } finally {
+            if (isPosixCompliant()) {
+                // Assume POSIX compliant file system, can be deleted after loading
+                temp.delete();
+            } else {
+                // Assume non-POSIX, and don't delete until last file descriptor closed
+                temp.deleteOnExit();
             }
         }
 
-        return tempDir;
+        // create lock file
+        final File lock = new File( temp.getAbsolutePath() + ".lock");
+        lock.createNewFile();
+        lock.deleteOnExit();
+
+        cleanUnusedCopies(dirPrefix, filename);
+    }
+
+
+
+    private static boolean isPosixCompliant() {
+        try {
+            return FileSystems.getDefault()
+                    .supportedFileAttributeViews()
+                    .contains("posix");
+        } catch (FileSystemNotFoundException
+                | ProviderNotFoundException
+                | SecurityException e) {
+            return false;
+        }
+    }
+
+    private static File createTempDirectory(String prefix) throws IOException {
+        String tempDir = System.getProperty("java.io.tmpdir");
+        File generatedDir = new File(tempDir, prefix + System.nanoTime());
+
+        if (!generatedDir.mkdir())
+            throw new IOException("Failed to create temp directory " + generatedDir.getName());
+
+        return generatedDir;
+    }
+
+    private static void cleanUnusedCopies(String dirPrefix, String fileName) {
+        // Find dir names starting with our prefix
+        FileFilter tmpDirFilter = pathname -> pathname.getName().startsWith(dirPrefix);
+
+        // Get all folders from system temp dir that match our filter
+        String tmpDirName = System.getProperty("java.io.tmpdir");
+        File[] tmpDirs = new File(tmpDirName).listFiles(tmpDirFilter);
+
+        for (File tDir : tmpDirs) {
+            // Create a file to represent the lock and test.
+            File lockFile = new File( tDir.getAbsolutePath() + "/" + fileName + ".lock");
+
+            // If lock file doesn't exist, it means this directory and lib file are no longer in use, so delete them
+            if (!lockFile.exists()) {
+                File[] tmpFiles = tDir.listFiles();
+                for(File tFile : tmpFiles) {
+                    tFile.delete();
+                }
+                tDir.delete();
+            }
+        }
     }
 }
