@@ -27,7 +27,6 @@ package com.nixxcode.jvmbrotli.common;
 
 import java.io.*;
 import java.nio.file.*;
-import java.util.regex.Pattern;
 
 /**
  * A simple library class which helps with loading dynamic libraries stored in the
@@ -56,6 +55,10 @@ import java.util.regex.Pattern;
  * WARNING: It is YOUR responsibility as the caller, to provide the loadLibraryFromJar method with a unique tempDirPrefix.
  * This is important, since the cleanUnusedCopies method uses this prefix to identify (and delete) unused directories
  * we created on previous runs.
+ *
+ * FIX: I also moved the temporaryDir variable from class static, to being initialized inside the loadLibraryFromJar method.
+ * This is a static helper class that may get called multiple times per instance. Because of this, I feel it is not
+ * good practice for it to maintain an internal state. That's the responsibility of any code that is calling it.
  */
 public class NativeUtils {
 
@@ -65,15 +68,10 @@ public class NativeUtils {
     private static final int MIN_PREFIX_LENGTH = 3;
 
     /**
-     * Temporary directory which will contain the DLLs.
-     */
-    private static File temporaryDir;
-
-    /**
      * Private constructor - this class will never be instanced
      */
-    private NativeUtils() {
-    }
+    private NativeUtils() { }
+
     /**
      * Loads library from current JAR archive
      *
@@ -110,11 +108,8 @@ public class NativeUtils {
             throw new IllegalArgumentException("The filename has to be at least 3 characters long.");
         }
 
-        // Prepare temporary file
-        if (temporaryDir == null) {
-            temporaryDir = createTempDirectory(dirPrefix);
-            temporaryDir.deleteOnExit();
-        }
+        File temporaryDir = createTempDirectory(dirPrefix);
+        temporaryDir.deleteOnExit();
 
         File temp = new File(temporaryDir, filename);
 
