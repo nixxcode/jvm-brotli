@@ -7,32 +7,15 @@
     <parent>
         <groupId>com.nixxcode.jvmbrotli</groupId>
         <artifactId>jvmbrotli-parent</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.1.0</version>
     </parent>
 
     <artifactId>jvmbrotli</artifactId>
     <packaging>jar</packaging>
 
     <properties>
-        <jvmbrotli-version>0.1-SNAPSHOT</jvmbrotli-version>
+        <jvmbrotli-version>0.1.0</jvmbrotli-version>
     </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <profiles>
         <profile>
@@ -97,23 +80,6 @@
                 <dependency>
                     <groupId>com.nixxcode.jvmbrotli</groupId>
                     <artifactId>jvmbrotli-linux-x86-amd64</artifactId>
-                    <version>${jvmbrotli-version}</version>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
-            <id>linux-x86</id>
-            <activation>
-                <os>
-                    <family>unix</family>
-                    <arch>x86</arch>
-                </os>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>com.nixxcode.jvmbrotli</groupId>
-                    <artifactId>jvmbrotli-linux-x86</artifactId>
                     <version>${jvmbrotli-version}</version>
                 </dependency>
             </dependencies>

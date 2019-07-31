@@ -6,8 +6,16 @@
 
     <groupId>com.nixxcode.jvmbrotli</groupId>
     <artifactId>jvmbrotli-parent</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1.0</version>
     <packaging>pom</packaging>
+
+    <developers>
+        <developer>
+            <name>Dominik Petrovic</name>
+            <email>dominik.petrovic87@gmail.com</email>
+            <url>http://nixxcode.com</url>
+        </developer>
+    </developers>
 
     <modules>
         <module>natives</module>
@@ -29,6 +37,19 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

@@ -7,19 +7,17 @@
     <parent>
         <groupId>com.nixxcode.jvmbrotli</groupId>
         <artifactId>jvmbrotli-parent</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.1.0</version>
     </parent>
 
     <artifactId>jvmbrotli-natives</artifactId>
     <packaging>pom</packaging>
 
     <profiles>
-
         <!--
         Using the os/arch names as Java Native Access (jna) lib does - so to choose as module names.
         See also: https://github.com/java-native-access/jna
         -->
-
         <profile>
             <id>win32-x86</id>
             <activation>
