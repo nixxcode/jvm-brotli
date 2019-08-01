@@ -6,9 +6,26 @@ import java.util.Locale;
 import static com.nixxcode.jvmbrotli.common.Arch.*;
 import static com.nixxcode.jvmbrotli.common.OS.*;
 
+/**
+ * Helper class that handles the loading of our native lib
+ */
 public class BrotliLoader {
 
+    /**
+     * Base name of the Brotli library as compiled by CMake. This constant should NOT be changed.
+     *
+     * This is morphed according to OS by using System.mapLibraryName(). So for example:
+     * Windows: brotli.dll
+     * Linux:   libbrotli.so
+     * Mac:     libbrotli.dylib
+     */
     private static final String LIBNAME = "brotli";
+
+    /**
+     * Name of directory we create in the system temp folder when unpacking and loading the native library
+     *
+     * Must be at least 3 characters long, and should be unique to prevent clashing with existing folders in temp
+     */
     private static final String DIR_PREFIX = "jvmbrotli";
 
     /**
@@ -18,10 +35,10 @@ public class BrotliLoader {
 
     public static void loadBrotli() {
         if(libLoaded) return;
-        try {
+        try { // Try system lib path first
             System.loadLibrary(LIBNAME);
             libLoaded = true;
-        } catch (UnsatisfiedLinkError linkError) {
+        } catch (UnsatisfiedLinkError linkError) { // If system load fails, attempt to unpack from jar and then load
             try {
                 String nativeLibName = System.mapLibraryName(LIBNAME);
                 String libPath = "/lib/" + determineOsArchName() + "/" + nativeLibName;
