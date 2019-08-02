@@ -2,39 +2,44 @@ package com.nixxcode.jvmbrotli;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.*;
-import java.net.URL;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
 import com.nixxcode.jvmbrotli.common.BrotliLoader;
+import com.nixxcode.jvmbrotli.dec.BrotliInputStream;
+import com.nixxcode.jvmbrotli.enc.BrotliEncoderChannel;
 import com.nixxcode.jvmbrotli.enc.Encoder;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.AllTests;
-import com.nixxcode.jvmbrotli.enc.BrotliOutputStream;
-import com.nixxcode.jvmbrotli.dec.BrotliInputStream;
 
-/** Tests for {@link BrotliOutputStream}. */
+/** Tests for {@link com.nixxcode.jvmbrotli.enc.BrotliEncoderChannel}. */
 @RunWith(AllTests.class)
-public class BrotliOutputStreamTest extends BrotliJniTestBase {
+public class BrotliEncoderChannelTest extends BrotliJniTestBase {
 
   private enum TestMode {
     WRITE_ALL,
-    WRITE_CHUNKS,
-    WRITE_BYTE
+    WRITE_CHUNKS
   }
 
   private static final int CHUNK_SIZE = 256;
 
+  static void loadLib() {
+    BrotliLoader.loadBrotli();
+  }
+
   static InputStream getBundle() throws IOException {
     Class clazz = BrotliOutputStreamTest.class;
     return clazz.getResourceAsStream("/file/test_corpus.zip");
-  }
-
-  static void loadLib() {
-    BrotliLoader.loadBrotli();
   }
 
   /** Creates a test suite. */
@@ -45,9 +50,8 @@ public class BrotliOutputStreamTest extends BrotliJniTestBase {
     try {
       List<String> entries = BundleHelper.listEntries(bundle);
       for (String entry : entries) {
-        suite.addTest(new StreamTestCase(entry, TestMode.WRITE_ALL));
-        suite.addTest(new StreamTestCase(entry, TestMode.WRITE_CHUNKS));
-        suite.addTest(new StreamTestCase(entry, TestMode.WRITE_BYTE));
+        suite.addTest(new ChannleTestCase(entry, TestMode.WRITE_ALL));
+        suite.addTest(new ChannleTestCase(entry, TestMode.WRITE_CHUNKS));
       }
     } finally {
       bundle.close();
@@ -56,18 +60,18 @@ public class BrotliOutputStreamTest extends BrotliJniTestBase {
   }
 
   /** Test case with a unique name. */
-  static class StreamTestCase extends TestCase {
+  static class ChannleTestCase extends TestCase {
     final String entryName;
     final TestMode mode;
-    StreamTestCase(String entryName, TestMode mode) {
-      super("BrotliOutputStreamTest." + entryName + "." + mode.name());
+    ChannleTestCase(String entryName, TestMode mode) {
+      super("BrotliEncoderChannelTest." + entryName + "." + mode.name());
       this.entryName = entryName;
       this.mode = mode;
     }
 
     @Override
     protected void runTest() throws Throwable {
-      BrotliOutputStreamTest.run(entryName, mode);
+      BrotliEncoderChannelTest.run(entryName, mode);
     }
   }
 
@@ -88,23 +92,21 @@ public class BrotliOutputStreamTest extends BrotliJniTestBase {
     }
 
     ByteArrayOutputStream dst = new ByteArrayOutputStream();
-    Encoder.Parameters params = new Encoder.Parameters().setQuality(2);
-    OutputStream encoder = new BrotliOutputStream(dst, params);
+    WritableByteChannel encoder = new BrotliEncoderChannel(Channels.newChannel(dst), new Encoder.Parameters().setQuality(2));
+    ByteBuffer src = ByteBuffer.wrap(original);
     try {
       switch (mode) {
         case WRITE_ALL:
-          encoder.write(original);
+          encoder.write(src);
           break;
 
         case WRITE_CHUNKS:
-          for (int offset = 0; offset < original.length; offset += CHUNK_SIZE) {
-            encoder.write(original, offset, Math.min(CHUNK_SIZE, original.length - offset));
-          }
-          break;
-
-        case WRITE_BYTE:
-          for (byte singleByte : original) {
-            encoder.write(singleByte);
+          while (src.hasRemaining()) {
+            int limit = Math.min(CHUNK_SIZE, src.remaining());
+            ByteBuffer slice = src.slice();
+            ((Buffer) slice).limit(limit);
+            ((Buffer) src).position(src.position() + limit);
+            encoder.write(slice);
           }
           break;
       }

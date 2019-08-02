@@ -3,34 +3,38 @@
    Distributed under MIT license.
    See file LICENSE for detail or copy at https://opensource.org/licenses/MIT
 */
+
 package com.nixxcode.jvmbrotli;
 
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.util.List;
 
 import com.nixxcode.jvmbrotli.common.BrotliLoader;
+import com.nixxcode.jvmbrotli.dec.BrotliDecoderChannel;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import com.nixxcode.jvmbrotli.dec.BrotliInputStream;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.AllTests;
 
-/** Tests for {@link BrotliInputStream}. */
+/** Tests for {@link com.nixxcode.jvmbrotli.dec.BrotliDecoderChannel}. */
 @RunWith(AllTests.class)
-public class BrotliInputStreamTest extends BrotliJniTestBase {
+public class BrotliDecoderChannelTest extends BrotliJniTestBase {
+
+  static void loadLib() {
+    BrotliLoader.loadBrotli();
+  }
 
   static InputStream getBundle() throws IOException {
     Class clazz = BrotliOutputStreamTest.class;
     return clazz.getResourceAsStream("/file/test_data.zip");
-  }
-
-  static void loadLib() {
-    BrotliLoader.loadBrotli();
   }
 
   /** Creates a test suite. */
@@ -41,7 +45,7 @@ public class BrotliInputStreamTest extends BrotliJniTestBase {
     try {
       List<String> entries = BundleHelper.listEntries(bundle);
       for (String entry : entries) {
-        suite.addTest(new StreamTestCase(entry));
+        suite.addTest(new ChannelTestCase(entry));
       }
     } finally {
       bundle.close();
@@ -50,16 +54,16 @@ public class BrotliInputStreamTest extends BrotliJniTestBase {
   }
 
   /** Test case with a unique name. */
-  static class StreamTestCase extends TestCase {
+  static class ChannelTestCase extends TestCase {
     final String entryName;
-    StreamTestCase(String entryName) {
-      super("BrotliInputStreamTest." + entryName);
+    ChannelTestCase(String entryName) {
+      super("BrotliDecoderChannelTest." + entryName);
       this.entryName = entryName;
     }
 
     @Override
     protected void runTest() throws Throwable {
-      BrotliInputStreamTest.run(entryName);
+      BrotliDecoderChannelTest.run(entryName);
     }
   }
 
@@ -75,11 +79,11 @@ public class BrotliInputStreamTest extends BrotliJniTestBase {
       throw new RuntimeException("Can't read bundle entry: " + entryName);
     }
 
-    InputStream src = new ByteArrayInputStream(compressed);
-    InputStream decoder = new BrotliInputStream(src);
+    ReadableByteChannel src = Channels.newChannel(new ByteArrayInputStream(compressed));
+    ReadableByteChannel decoder = new BrotliDecoderChannel(src);
     long crc;
     try {
-      crc = BundleHelper.fingerprintStream(decoder);
+      crc = BundleHelper.fingerprintStream(Channels.newInputStream(decoder));
     } finally {
       decoder.close();
     }
