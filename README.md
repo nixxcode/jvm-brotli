@@ -38,7 +38,7 @@ Jvm-Brotli is designed with ease of use in mind. To include it in your Maven pro
 <dependency>
     <groupId>com.nixxcode.jvmbrotli</groupId>
     <artifactId>jvmbrotli</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <optional>true</optional>
 </dependency>
 ```
