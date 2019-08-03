@@ -56,6 +56,17 @@ We would also really appreciate it if you could create an issue and request supp
 
 Please see the quick snippets below to get started. In addition, fully functional example code  can be found [here](https://github.com/nixxcode/jvm-brotli/tree/release-prep/jvmbrotli/src/test/java/com/nixxcode/jvmbrotli/examples)
 
+#### Loading Jvm-Brotli:
+
+Before calling any other methods in the jvmbrotli namespace, you must execute the following line in your application:
+
+```java
+BrotliLoader.loadBrotli();
+```
+
+This static method call attempts to load the native Brotli library into Java. Once successfully executed, the BrotliLoader object remembers that the library has already been loaded in your JVM instance, so multiple calls to this method shouldn't cause any problems.
+
+
 #### Encoding a stream:
 ```java
 // Init file input and output
