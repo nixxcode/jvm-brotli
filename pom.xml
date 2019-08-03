@@ -85,6 +85,8 @@
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <skipRemoteStaging>true</skipRemoteStaging>
+                    <stagingProfileId>cdaf36edf796b5</stagingProfileId>
                 </configuration>
             </plugin>
 

@@ -60,7 +60,7 @@ import java.nio.file.*;
  * This is a static helper class that may get called multiple times per instance. Because of this, I feel it is not
  * good practice for it to maintain an internal state. That's the responsibility of any code that is calling it.
  */
-public class NativeUtils {
+class NativeUtils {
 
     /**
      * The minimum length a prefix for a file has to have according to {@link File#createTempFile(String, String)}}.
