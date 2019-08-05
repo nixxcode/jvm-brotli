@@ -13,4 +13,4 @@ include:
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
   - Jvm-Brotli.md
-theme: jekyll-theme-slate
+theme: jekyll-theme-tactile
