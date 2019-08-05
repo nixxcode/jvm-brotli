@@ -121,6 +121,14 @@ Coming soon
 
 Coming soon
 
+## Contributing
+
+First of all, thank you for your interest in Jvm-Brotli! 
+
+Contributions are very welcome and highly appreciated. If you are interested, please have a quick read through our [short contribution guide](https://github.com/nixxcode/jvm-brotli/blob/master/CONTRIBUTING.md). 
+
+Thank you!
+
 ## Licensing
 
 Google Brotli and corresponding Java code are licensed under the [MIT License](https://opensource.org/licenses/MIT)
