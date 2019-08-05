@@ -4,21 +4,21 @@ Making Brotli usable in Java can be a tricky and time consuming exercise. The Br
 
 The bindings are provided by Google, but it is still left to the Java developer to compile the Brotli and JNI source files individually for every platform they wish to support. Anybody who has dealt with JNI bindings and native code in the past, will already be familiar with the problems and complexity this approach can add to a Java project.
 
-**This is where Jvm-Brotli comes in**. The goal of this project is to provide easy access to the Brotli compression algorithm for Java developers on all platforms. 
+**This is where Jvm-Brotli comes in**. The goal for this project is to provide easy access to the Brotli compression algorithm for Java developers and users on all platforms. 
 
 Jvm-Brotli aims to:
 
-- Take the original c/c++ and Java code from [google/brotli](https://github.com/google/brotli), keeping it as close as possible to the original.
-- Compile it on multiple platforms
-- Package the pre-compiled native libraries into JARs, making them available via maven central
-- Provide source code with project breakdown and build instructions, to make forking and building as easy as possible for platforms that are not yet supported.
+- Take the up-to-date c/c++ and Java code from [google/brotli](https://github.com/google/brotli).
+- Compile it on multiple platforms.
+- Package the pre-compiled native libraries into JARs and upload them to maven central
+- Automatically download the correct native library from maven central based on the user's current platform.
+- Provide source code with project breakdown and build instructions, to make forking and building as easy as possible.
 
 ## General Information
 
 * Project website: (coming soon)
 * Documentation: (coming soon)
 * Chat: (coming soon)
-* Licensing: (coming soon)
 
 ## Supported Platforms
 
@@ -26,9 +26,17 @@ Jvm-Brotli aims to:
 * Linux (64 bit) - Tested on Ubuntu 18.04
 * Mac OSX - Tested on Mojave
 
+**Please be aware** that "platform" in this context means JVM version, and not your operating system! (e.g. Windows 64-bit running a 32-bit version of JVM will identify as 32-bit!)
+
 #### Support Coming Soon
 
 * Linux on ARM processors (64 bit) - The build files are ready, just haven't had the opportunity to do the actual build
+
+#### Other Platforms
+
+If you are uncertain about your platform being supported, we encourage you to clone the example project and try running it. This will give you a definitive answer.
+
+If your platform is not supported, we would really appreciate if you could create an issue and request for support to be added. The goal for this project is to make Brotli readily available to Java developers and users on as many platforms as possible. We can make it happen with your help!
 
 ## Getting Started
 
@@ -46,19 +54,13 @@ That's all! You don't need to worry about what platform you're on, as long as it
 
 **The same applies for transitive dependencies as well!** You don't need to worry about others getting the wrong native library when they include your project.
 
-The **optional** tag is not mandatory, but is highly recommended. It gives your dependents the option to keep their code 100% platform-independent by opting to exclude Jvm-Brotli
-
-If your platform is not supported, but you still want to use Jvm-Brotli right now, please scroll down to the "Build Instructions" section. 
-
-We would also really appreciate it if you could create an issue and request support for your platform. Remember, the goal of this project is to make Jvm-Brotli available on as many platforms as possible. We can make it happen with your help!
+The **optional** tag is not a must, but is highly recommended given the JNI-dependent nature of Jvm-Brotli. It means your dependents will also need to add Jvm-Brotli as a maven or gradle dependency if they wish to include it in their project. This way, you are not forcing JNI code on your dependents.
 
 ### Usage Examples
 
 Please see the quick snippets below to get started. In addition, fully functional example code  can be found [here](https://github.com/nixxcode/jvm-brotli/tree/release-prep/jvmbrotli/src/test/java/com/nixxcode/jvmbrotli/examples)
 
 #### Loading Jvm-Brotli:
-
-Before calling any other methods in the jvmbrotli namespace, you must execute the following line in your application:
 
 ```java
 BrotliLoader.loadBrotli();
