@@ -67,7 +67,11 @@ public class BrotliLoader {
     }
 
     private static String determineOsArchName() {
-        return determineOS() + "-" + determineArch();
+        String os = determineOS();
+        String arch = determineArch();
+        if(os == null) throw new RuntimeException("Unsupported operating system");
+        if(arch == null) throw new RuntimeException("Unsupported architecture");
+        return os + "-" + arch;
     }
 
     private static String determineOS() {
@@ -75,7 +79,7 @@ public class BrotliLoader {
         if (LINUX.matches(osName)) return LINUX.name;
         if (WIN32.matches(osName)) return WIN32.name;
         if (OSX.matches(osName)) return OSX.name;
-        return osName;
+        return null;
     }
 
     private static String determineArch() {
@@ -83,6 +87,6 @@ public class BrotliLoader {
         if (X86_AMD64.matches(osArch)) return X86_AMD64.name;
         if (X86.matches(osArch)) return X86.name;
         if (ARM32_VFP_HFLT.matches(osArch)) return ARM32_VFP_HFLT.name;
-        return osArch;
+        return null;
     }
 }
