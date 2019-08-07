@@ -34,7 +34,7 @@ Jvm-Brotli aims to:
 
 #### Other Platforms
 
-If you are uncertain about your platform being supported, we encourage you to clone the example project and try running it. This will give you a definitive answer.
+If you are uncertain about your platform being supported, we encourage you to clone the [example project](https://github.com/nixxcode/jvm-brotli-example) and try running it. This will give you a definitive answer.
 
 If your platform is not supported, we would really appreciate if you could create an issue and request for support to be added. The goal for this project is to make Brotli readily available to Java developers and users on as many platforms as possible. We can make it happen with your help!
 
@@ -58,7 +58,9 @@ The **optional** tag is not a must, but is highly recommended given the JNI-depe
 
 ### Usage Examples
 
-Please see the quick snippets below to get started. In addition, fully functional example code  can be found [here](https://github.com/nixxcode/jvm-brotli/tree/release-prep/jvmbrotli/src/test/java/com/nixxcode/jvmbrotli/examples)
+The code snippets below should get you started. 
+
+If you are looking for code that's ready to execute, we have an [example project](https://github.com/nixxcode/jvm-brotli-example) you can clone.
 
 #### Loading Jvm-Brotli:
 
