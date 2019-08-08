@@ -1,3 +1,5 @@
+# Jvm-Brotli: Lightweight, cross-platform Java library for the Brotli compression format
+
 Making Brotli usable in Java can be a tricky and time consuming exercise. The Brotli code is written in c/c++ and is platform dependent. This makes the use of JNI bindings mandatory. 
 
 The bindings are provided by Google, but it is still left to the Java developer to compile the Brotli and JNI source files individually for every platform they wish to support. Anybody who has dealt with JNI bindings and native code in the past, will already be familiar with the problems and complexity this approach can add to a Java project.
@@ -14,7 +16,7 @@ Jvm-Brotli aims to:
 
 ## General Information
 
-* Project website: (coming soon)
+* Project website: https://nixxcode.com/jvm-brotli
 * Documentation: (coming soon)
 * Chat: (coming soon)
 
@@ -32,7 +34,7 @@ Jvm-Brotli aims to:
 
 #### Other Platforms
 
-If you are uncertain about your platform being supported, we encourage you to clone the example project and try running it. This will give you a definitive answer.
+If you are uncertain about your platform being supported, we encourage you to clone the [example project](https://github.com/nixxcode/jvm-brotli-example) and try running it. This will give you a definitive answer.
 
 If your platform is not supported, we would really appreciate if you could create an issue and request for support to be added. The goal for this project is to make Brotli readily available to Java developers and users on as many platforms as possible. We can make it happen with your help!
 
@@ -56,16 +58,19 @@ The **optional** tag is not a must, but is highly recommended given the JNI-depe
 
 ### Usage Examples
 
-Please see the quick snippets below to get started. In addition, fully functional example code  can be found [here](https://github.com/nixxcode/jvm-brotli/tree/release-prep/jvmbrotli/src/test/java/com/nixxcode/jvmbrotli/examples)
+The code snippets below should get you started. 
+
+If you are looking for code that's ready to execute, we have an [example project](https://github.com/nixxcode/jvm-brotli-example) you can clone.
 
 #### Loading Jvm-Brotli:
 
+You MUST call the following method at least once during your application's runtime if you wish to use Brotli:
+
 ```java
-BrotliLoader.loadBrotli();
+BrotliLoader.isBrotliAvailable();
 ```
 
-This static method call attempts to load the native Brotli library into Java. Once successfully executed, the BrotliLoader object remembers that the library has already been loaded in your JVM instance, so multiple calls to this method shouldn't cause any problems.
-
+This static method call attempts to load the native Brotli library into the current JVM runtime when invoked **for the first time**. If loading succeeds, it silently returns true. If loading fails, it prints an exception to console and returns false. Subsequent calls only return true/false, depending if the original load attempt was successful or not. No further load attempts are made unless the application is restarted.
 
 #### Encoding a stream:
 ```java
