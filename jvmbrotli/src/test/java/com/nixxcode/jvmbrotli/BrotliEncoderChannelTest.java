@@ -34,7 +34,7 @@ public class BrotliEncoderChannelTest extends BrotliJniTestBase {
   private static final int CHUNK_SIZE = 256;
 
   static void loadLib() {
-    BrotliLoader.loadBrotli();
+    BrotliLoader.isBrotliAvailable();
   }
 
   static InputStream getBundle() throws IOException {

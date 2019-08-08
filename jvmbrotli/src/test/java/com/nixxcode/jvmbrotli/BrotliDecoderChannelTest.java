@@ -29,7 +29,7 @@ import org.junit.runners.AllTests;
 public class BrotliDecoderChannelTest extends BrotliJniTestBase {
 
   static void loadLib() {
-    BrotliLoader.loadBrotli();
+    BrotliLoader.isBrotliAvailable();
   }
 
   static InputStream getBundle() throws IOException {

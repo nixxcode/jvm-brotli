@@ -34,7 +34,7 @@ public class BrotliOutputStreamTest extends BrotliJniTestBase {
   }
 
   static void loadLib() {
-    BrotliLoader.loadBrotli();
+    BrotliLoader.isBrotliAvailable();
   }
 
   /** Creates a test suite. */

@@ -49,8 +49,29 @@ public class BrotliLoader {
      */
     private static boolean libLoaded = false;
 
+    /**
+     * No sense trying to load again if we failed the first time
+     */
+    private static boolean loadAttempted = false;
+
+    public static boolean isBrotliAvailable() {
+        if(loadAttempted) {
+            return libLoaded;
+        }
+        else {
+            try {
+                loadBrotli();
+            } catch (RuntimeException e) {
+                e.printStackTrace();
+            } finally {
+                return libLoaded;
+            }
+        }
+    }
+
+    @Deprecated // Use isBrotliAvailable() instead. Will be made private in version 1.0.0.
     public static void loadBrotli() {
-        if(libLoaded) return;
+        if(loadAttempted) return;
         try { // Try system lib path first
             System.loadLibrary(LIBNAME);
             libLoaded = true;
@@ -63,6 +84,8 @@ public class BrotliLoader {
             } catch (IOException ioException) {
                 throw new RuntimeException(ioException);
             }
+        } finally {
+            loadAttempted = true;
         }
     }
 
