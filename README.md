@@ -64,12 +64,13 @@ If you are looking for code that's ready to execute, we have an [example project
 
 #### Loading Jvm-Brotli:
 
+You MUST call the following method at least once during your application's runtime if you wish to use Brotli:
+
 ```java
-BrotliLoader.loadBrotli();
+BrotliLoader.isBrotliAvailable();
 ```
 
-This static method call attempts to load the native Brotli library into Java. Once successfully executed, the BrotliLoader object remembers that the library has already been loaded in your JVM instance, so multiple calls to this method shouldn't cause any problems.
-
+This static method call attempts to load the native Brotli library into the current JVM runtime when invoked **for the first time**. If loading succeeds, it silently returns true. If loading fails, it prints an exception to console and returns false. Subsequent calls only return true/false, depending if the original load attempt was successful or not. No further load attempts are made unless the application is restarted.
 
 #### Encoding a stream:
 ```java
