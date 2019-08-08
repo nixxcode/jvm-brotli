@@ -14,6 +14,7 @@
     <packaging>jar</packaging>
 
     <profiles>
+
         <profile>
             <id>default</id>
             <activation>
