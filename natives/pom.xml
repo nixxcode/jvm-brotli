@@ -82,6 +82,16 @@
             </modules>
         </profile>
 
+        <profile>
+            <id>release</id>
+            <modules>
+                <module>win32-x86</module>
+                <module>win32-x86-amd64</module>
+                <module>linux-x86-amd64</module>
+                <module>darwin-x86-amd64</module>
+            </modules>
+        </profile>
+
     </profiles>
 
 </project>

@@ -14,6 +14,7 @@
     <packaging>jar</packaging>
 
     <profiles>
+
         <profile>
             <id>build-native-linux-armhf</id>
             <activation>
@@ -79,6 +80,18 @@
                 </plugins>
             </build>
         </profile>
+
+        <profile>
+            <id>release</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>resources</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
     </profiles>
 
 </project>
