@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.nixxcode.jvmbrotli</groupId>
         <artifactId>jvmbrotli-natives</artifactId>
-        <version>0.1.1</version>
+        <version>0.2.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>jvmbrotli-win32-x86</artifactId>

@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.nixxcode.jvmbrotli</groupId>
         <artifactId>jvmbrotli-parent</artifactId>
-        <version>0.1.1</version>
+        <version>0.2.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>jvmbrotli</artifactId>
@@ -26,7 +26,7 @@
                 <dependency>
                     <groupId>com.nixxcode.jvmbrotli</groupId>
                     <artifactId>jvmbrotli-win32-x86-amd64</artifactId>
-                    <version>0.1.1</version>
+                    <version>0.2.0-SNAPSHOT</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -43,7 +43,7 @@
                 <dependency>
                     <groupId>com.nixxcode.jvmbrotli</groupId>
                     <artifactId>jvmbrotli-win32-x86</artifactId>
-                    <version>0.1.1</version>
+                    <version>0.2.0-SNAPSHOT</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -59,7 +59,7 @@
                 <dependency>
                     <groupId>com.nixxcode.jvmbrotli</groupId>
                     <artifactId>jvmbrotli-darwin-x86-amd64</artifactId>
-                    <version>0.1.1</version>
+                    <version>0.2.0-SNAPSHOT</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -76,7 +76,7 @@
                 <dependency>
                     <groupId>com.nixxcode.jvmbrotli</groupId>
                     <artifactId>jvmbrotli-linux-x86-amd64</artifactId>
-                    <version>0.1.1</version>
+                    <version>0.2.0-SNAPSHOT</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -93,7 +93,7 @@
                 <dependency>
                     <groupId>com.nixxcode.jvmbrotli</groupId>
                     <artifactId>jvmbrotli-linux-arm32-vfp-hflt</artifactId>
-                    <version>0.1.1</version>
+                    <version>0.2.0-SNAPSHOT</version>
                 </dependency>
             </dependencies>
         </profile>
