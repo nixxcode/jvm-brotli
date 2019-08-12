@@ -1,3 +1,5 @@
+# Jvm-Brotli: Lightweight, cross-platform Java library for the Brotli compression format
+
 Making Brotli usable in Java can be a tricky and time consuming exercise. The Brotli code is written in c/c++ and is platform dependent. This makes the use of JNI bindings mandatory. 
 
 The bindings are provided by Google, but it is still left to the Java developer to compile the Brotli and JNI source files individually for every platform they wish to support. Anybody who has dealt with JNI bindings and native code in the past, will already be familiar with the problems and complexity this approach can add to a Java project.
