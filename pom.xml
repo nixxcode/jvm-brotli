@@ -16,13 +16,13 @@
 
     <name>jvm-brotli</name>
     <description>Lightweight, cross-platform Java library for the Brotli compression format</description>
-    <url>https://jvmbrotli.nixxcode.com</url>
+    <url>https://jvmbrotli.com</url>
 
     <developers>
         <developer>
             <name>Dominik Petrovic</name>
             <email>dominik.petrovic87@gmail.com</email>
-            <url>http://nixxcode.com</url>
+            <url>https://nixxcode.com</url>
         </developer>
     </developers>
 

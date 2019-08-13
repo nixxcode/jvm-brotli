@@ -16,7 +16,7 @@ Jvm-Brotli aims to:
 
 ## General Information
 
-* Project website: https://nixxcode.com/jvm-brotli
+* Project website: https://jvmbrotli.com
 * Documentation: (coming soon)
 * Chat: (coming soon)
 

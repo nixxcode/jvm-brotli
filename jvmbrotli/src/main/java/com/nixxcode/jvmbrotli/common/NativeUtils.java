@@ -2,7 +2,7 @@
  * Class NativeUtils is published under the The MIT License:
  *
  * Copyright (c) 2012 Adam Heinrich <adam@adamh.cz>
- * Modified for use in jvm-brotli by Dominik Petrovic (http://nixxcode.com)
+ * Modified for use in jvm-brotli by Dominik Petrovic (https://nixxcode.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
