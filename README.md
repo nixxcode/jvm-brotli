@@ -1,3 +1,5 @@
+[![Chat at https://gitter.im/jvm-brotli/community](https://badges.gitter.im/jvm-brotli/community.svg)](https://gitter.im/jvm-brotli/community)
+
 # Jvm-Brotli: Lightweight, cross-platform Java library for the Brotli compression format
 
 Making Brotli usable in Java can be a tricky and time consuming exercise. The Brotli code is written in c/c++ and is platform dependent. This makes the use of JNI bindings mandatory. 
@@ -17,8 +19,7 @@ Jvm-Brotli aims to:
 ## General Information
 
 * Project website: https://jvmbrotli.com
-* Documentation: (coming soon)
-* Chat: (coming soon)
+* Chat: https://gitter.im/jvm-brotli/community
 
 ## Supported Platforms
 
