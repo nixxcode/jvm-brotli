@@ -131,7 +131,7 @@ Before building this project, you must have the following pre-requisites install
 - CMake v3.0+
 - C++ compiler tool chain
 
-The first two are universal. The C++ compiler tool chain will depend on your operating system. There may be multiple choices available depending on your operating system, but Jvm-Brotli was built using the following:
+The first two are universal. The C++ compiler tool chain will depend on your operating system. There may be multiple choices available, but Jvm-Brotli was built using the following:
 - Linux: gcc (for C) and g++ (for C++)
 - Mac OSX: AppleClang (included with Xcode)
 - Windows: nmake (need to install C++ build tools via Visual Studio installer. You don't need to install the entirety of VS)
