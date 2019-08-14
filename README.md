@@ -126,7 +126,21 @@ The individual native submodules then contain platform-dependent build scripts, 
 The idea is to make the native Brotli build process consistent across all platforms, using a universal Maven command.
 
 ## Build Instructions
-Coming soon
+Before building this project, you must have the following pre-requisites installed:
+- Java JDK 8+
+- CMake v3.0+
+- C++ compiler tool chain
+
+The first two are universal. The C++ compiler tool chain will depend on your operating system. There may be multiple choices available depending on your operating system, but Jvm-Brotli was built using the following:
+- Linux: gcc (for C) and g++ (for C++)
+- Mac OSX: AppleClang (included with Xcode)
+- Windows: nmake (need to install C++ build tools via Visual Studio installer. You don't need to install the entirety of VS)
+
+Once you have these pre-requisites installed, simply run `mvn package` from the project root.
+
+This will build both the Java and C++ code, and will copy the native library to classpath so it can be loaded and called from Java.
+
+Windows users will likely need to run the usual "vcvarsall.bat" (x86 or x64 depending on platform) in their cmd instance before running the above build command, as this temporarily sets Windows environment variables to allow for C++ compiling via command line. Failure to do this first will likely result in build errors with CMake complaining about missing compilers.
 
 ## Contributing
 First of all, thank you for your interest in Jvm-Brotli! 
