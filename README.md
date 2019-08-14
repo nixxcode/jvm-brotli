@@ -52,9 +52,7 @@ That's all! You don't need to worry about what platform you're on, as long as it
 The **optional** tag is not a must, but is highly recommended given the JNI-dependent nature of Jvm-Brotli. It means your dependents will also need to add Jvm-Brotli as a maven or gradle dependency if they wish to include it in their project. This way, you are not forcing JNI code on your dependents.
 
 ### Usage Examples
-The code snippets below should get you started. 
-
-If you are looking for code that's ready to execute, we have an [example project](https://github.com/nixxcode/jvm-brotli-example) you can clone.
+The code snippets below should get you started. If you are looking for code that's ready to execute, we have an [example project](https://github.com/nixxcode/jvm-brotli-example) you can clone.
 
 #### Loading Jvm-Brotli:
 You MUST call the following method at least once during your application's runtime if you wish to use Brotli:
