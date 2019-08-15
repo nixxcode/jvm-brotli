@@ -40,7 +40,7 @@ permalink: /
 		<div class="box">
 			<h3>No C/C++</h3>
 			<p>
-				Handles the cross-platform compiling of C/C++ code and JNI classes, so you don't have to.
+				Handles the cross-platform compiling of C/C++ code, so you don't have to.
 			</p>
 		</div>
 	</div>
