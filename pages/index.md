@@ -61,7 +61,9 @@ permalink: /
 <div class="landing whitepart">
     <h1>What is the purpose of Jvm-Brotli?</h1>
     <div class="boxes">
+		<p>
 			Making Brotli usable in Java can be a tricky and time consuming exercise. The Brotli code is written in c/c++ and is platform dependent. This requires the use of JNI bindings.
+		</p>
 
 		<p>
 			The bindings are provided by Google, but it is still left to the Java developer to compile the source files individually for every platform they wish to support. Anybody who has dealt with JNI and native code in the past will already be familiar with the problems and complexity this approach can add to a project.
