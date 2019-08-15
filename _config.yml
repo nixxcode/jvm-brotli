@@ -1,6 +1,6 @@
 jvmbrotliversion: 0.2.0
 repourl: https://github.com/nixxcode/jvm-brotli
-description: Javalin - A lightweight Java and Kotlin web framework. Create REST APIs in Java or Kotlin easily.
+description: Jvm-Brotli - Lightweight, cross-platform Java library for the Brotli compression format.
 baseurl: "" # the subpath of your site, e.g. /blog
 
 # Build settings
