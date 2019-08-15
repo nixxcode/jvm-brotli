@@ -16,35 +16,6 @@ permalink: /
     </div>
 </div>
 
-<div class="landing whitepart">
-    <h1>What is the purpose of Jvm-Brotli?</h1>
-    <div class="text">
-        <p>
-			Making Brotli usable in Java can be a tricky and time consuming exercise. The Brotli code is written in c/c++ and is platform dependent. This requires the use of JNI bindings.
-		</p>
-
-		<p>
-			The bindings are provided by Google, but it is still left to the Java developer to compile the source files individually for every platform they wish to support. Anybody who has dealt with JNI and native code in the past will already be familiar with the problems and complexity this approach can add to a project.
-		</p>
-		
-		<p>
-			<strong>The purpose of Jvm-Brotli is to remove the headaches of dealing with JNI. It aims to make Brotli readily available and easy to access for Java developers on as many platforms as possible.</strong>
-		</p>
-    </div>
-</div>
-
-<div class="landing bluepart">
-	<h1>Adding Jvm-Brotli to your project is easy</h1>
-	{% include macros/jvmbrotliMavenDep.md %}
-	<div class="center">
-		<p>
-			We have some code samples and a fully functional example project to get you started:
-		</p>
-		<a class="landing-btn" href="/examples"><strong>Show code samples</strong></a>
-		<a class="landing-btn" href="https://github.com/nixxcode/jvm-brotli-example"><strong>Show example project</strong></a>
-	</div>
-</div>
-	
 <div class ="landing whitepart">
 	<h1>Why use Jvm-Brotli?</h1>
 	<div class="boxes">
@@ -73,4 +44,31 @@ permalink: /
 			</p>
 		</div>
 	</div>
+</div>
+
+<div class="landing bluepart">
+	<h1>Adding Jvm-Brotli to your project is easy</h1>
+	{% include macros/jvmbrotliMavenDep.md %}
+	<div class="center">
+		<p>
+			We have some code samples and a fully functional example project to get you started:
+		</p>
+		<a class="landing-btn" href="/examples"><strong>Show code samples</strong></a>
+		<a class="landing-btn" href="https://github.com/nixxcode/jvm-brotli-example"><strong>Show example project</strong></a>
+	</div>
+</div>
+
+<div class="landing whitepart">
+    <h1>What is the purpose of Jvm-Brotli?</h1>
+    <div class="text">
+			Making Brotli usable in Java can be a tricky and time consuming exercise. The Brotli code is written in c/c++ and is platform dependent. This requires the use of JNI bindings.
+
+		<p>
+			The bindings are provided by Google, but it is still left to the Java developer to compile the source files individually for every platform they wish to support. Anybody who has dealt with JNI and native code in the past will already be familiar with the problems and complexity this approach can add to a project.
+		</p>
+		
+		<p>
+			<strong>The purpose of Jvm-Brotli is to remove the headaches of dealing with JNI. It aims to make Brotli readily available and easy to access for Java developers on as many platforms as possible.</strong>
+		</p>
+    </div>
 </div>

@@ -33,15 +33,23 @@ nav ul li a:hover {
     color: white;
 }
 
+.landing {
+	padding: 80px 20px;
+}
+
 .landing h1 {
     text-align: center;
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
 .landing div.text {
+	
 	padding: 20px;
     display: flex;
     max-width: 1200px;
-    margin: 0 auto 32px;
+    margin: 0 auto 0;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -52,7 +60,6 @@ nav ul li a:hover {
 
 .bluepart {
     background: #262626;
-    padding: 80px 20px;
 	color: White;
 }
 
@@ -108,11 +115,7 @@ nav ul li a:hover {
 }
 
 .bluepart h1 {
-    text-align: center;
-    color: white;
-    font-weight: 500;
-    margin: 0;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+	color: white;
 }
 
 .bluepart > p {
@@ -153,7 +156,7 @@ nav ul li a:hover {
     padding: 20px;
     display: flex;
     max-width: 1200px;
-    margin: 0 auto 32px;
+    margin: 0 auto 0;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -167,6 +170,7 @@ nav ul li a:hover {
     font-size: 16px;
     margin-bottom: 32px;
     border-radius: 5px;
+	box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
 }
 
 .boxes .box h3 {
