@@ -44,15 +44,7 @@ nav ul li a:hover {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
-.landing div.text {
-	
-	padding: 20px;
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto 0;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+
 
 .bluepart ::selection {
     background: #027aa3;
@@ -155,7 +147,7 @@ nav ul li a:hover {
 .boxes {
     padding: 20px;
     display: flex;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto 0;
     justify-content: space-between;
     flex-wrap: wrap;
