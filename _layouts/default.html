@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include gtm-head.html %}
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans:500,700" rel="stylesheet">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}Javalin - A lightweight Java and Kotlin web framework. Create REST APIs in Java or Kotlin easily.">
+    <meta property="og:site_name" content="Javalin">
+    <meta property="og:url" content="https://javalin.io">
+    <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:image" content="https://javalin.io/img/javalin.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="liMtSlffOZROWLqoiOZdSx-luH9_Siq5-Ot6xqHZwq8">
+    <title>
+        {% if page.title %}{{ page.title }} - {% endif %}Jvm-Brotli - Lightweight, cross-platform Java library for the Brotli compression format
+    </title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/main.css">
+    <noscript><style>
+        :target:before {
+            content: "";
+            display: block;
+            height: 100px;
+        }
+    </style></noscript>
+    <style>{% include inlineCss.css %}</style>
+</head>
+<body>
+    {% include gtm-body.html %}
+		<header>
+			<nav class="width-limit">
+			{% if page.navbar %}	
+				<a id="logo" href="/" aria-label="Jvm-Brotli">
+					{% if page.splash %}<img src="/img/logo_inv.svg" alt="Javalin">{% else %}<img src="/img/logo.svg" alt="Javalin">{% endif %}
+				</a>
+				<ul>
+					<li><a href="/download">Download</a></li>
+					<li><a href="/documentation">Docs</a></li>
+					<li><a href="/tutorials">Tutorials</a></li>
+					<li><a href="/news">News</a></li>
+				</ul>
+			{% endif %}
+			</nav>
+		</header>
+    <main class="width-limit{% if page.rightmenu %} has-right-menu{% endif %}">
+        {{ content }}
+    </main>
+    <footer>
+        <a href="/contact">Contact</a>
+		| <a href="/license">License</a>
+    </footer>
+    {% include starBegging.html %}
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

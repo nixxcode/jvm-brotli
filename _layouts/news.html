@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<article class="news" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 class="no-margin-top" itemprop="name headline">Javalin {{ page.version }} released</h1>
+    <div class="subtitle">{{ page.title }} (<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>)</div>
+    {% unless page.hidewhatsjavalin %}
+    <div class="notification" markdown="1">
+        <em>What's Javalin?</em> Javalin is a very lightweight Java and Kotlin web framework which focuses on simplicity and Java/Kotlin interoperability.
+        Read more on our <a href="/">landing page</a>.
+    </div>
+    {% endunless %}
+    <div class="post-content" itemprop="articleBody">
+        {{ content }}
+    </div>
+</article>
+{% include socialButtons.html %}

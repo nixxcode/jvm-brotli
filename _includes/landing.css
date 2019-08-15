@@ -1,0 +1,237 @@
+main {
+    padding: 0;
+}
+
+header nav {
+    text-align: center;
+}
+
+header nav ul {
+    display: none;
+}
+
+main.width-limit {
+    max-width: 100%;
+    padding: 0;
+}
+
+header {
+    position: absolute;
+    border: 0;
+    background: #262626;
+}
+
+nav ul li + li {
+    border: 0;
+}
+
+nav ul li a {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+.landing h1 {
+    text-align: center;
+}
+
+.landing div.text {
+	padding: 20px;
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto 32px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.bluepart ::selection {
+    background: #027aa3;
+}
+
+.bluepart {
+    background: #262626;
+    padding: 80px 20px;
+	color: White;
+}
+
+.bluepart.first {
+	padding: 0px 20px 80px;
+}
+
+.bluepart .multitab-code {
+    max-width: 520px;
+    margin: 32px auto 0;
+}
+
+.bluepart .multitab-code ul {
+    background: rgba(0, 0, 0, 0.30);
+	border: 0px;
+}
+
+.bluepart .multitab-code ul li {
+	border: 0px;
+}
+
+.bluepart .multitab-code pre {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.bluepart .multitab-code pre code {
+    line-height: 1.4;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.bluepart .multitab-code pre code .token.number {
+    color: #ffbbea;
+}
+
+.bluepart .multitab-code pre code .token.function {
+    color: #ffe200;
+}
+
+.bluepart .multitab-code pre code .token.string {
+    color: #9be800;
+}
+
+.bluepart .multitab-code pre code .token.keyword {
+    color: #54e3ff;
+}
+
+.bluepart .multitab-code pre code .token.comment {
+    color: #a0bedc;
+}
+
+.bluepart .multitab-code span .token.tag {
+	color: yellow;
+}
+
+.bluepart h1 {
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.bluepart > p {
+    text-align: center;
+    color: white;
+}
+
+.bluepart > p > a {
+    color: white;
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}
+
+.center img {
+	display: block;
+    margin: 25px auto;
+}
+
+.landing-btn {
+    margin: 32px 8px 0;
+    padding: 10px 15px;
+    text-align: center;
+    display: inline-block;
+    background: rgba(244, 183, 69, 1);
+    color: rgba(33,33,33,1);
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.landing-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.boxes {
+    padding: 20px;
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto 32px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.boxes .box {
+    text-align: left;
+    flex-basis: calc(50% - 16px);
+    border: 1px solid #ddd;
+    padding: 15px;
+    background: #fff;
+    font-size: 16px;
+    margin-bottom: 32px;
+    border-radius: 5px;
+}
+
+.boxes .box h3 {
+    margin-top: 0;
+    font-weight: 500;
+    text-transform: none;
+}
+
+@media (max-width: 480px) {
+    .boxes .box {
+        flex-basis: 100%;
+    }
+
+    .bluepart {
+        padding: 40px 20px;
+    }
+}
+
+.used-by {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.used-by img {
+    display: inline-block;
+    width: 200px;
+    height: auto;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+}
+
+.survey-promo {
+    max-width: 500px;
+    margin: 0 auto 100px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+@media (max-width: 480px) {
+
+    .bluepart h1,
+    .whitepart h1 {
+        font-size: 7.5vw;
+    }
+
+    .landing-btn {
+        font-size: 14px;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    .box p {
+        font-size: 4vw;
+    }
+
+    .used-by img {
+        width: calc(50% - 15px);
+        margin: 7px;
+    }
+}

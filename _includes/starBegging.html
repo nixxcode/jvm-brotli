@@ -1,0 +1,48 @@
+<div id="star-begging">
+    <style>
+        #star-begging {
+            transition: transform .25s;
+            transform: scale(0);
+            border-radius: 3px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 40px 8px 12px;
+            background: #fff;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, .3), 0 1px 20px rgba(0, 0, 0, .2);
+        }
+        #star-begging.in {
+            transform: scale(1);
+        }
+        #star-begging.out {
+            transform: translateX(400px);
+        }
+        #star-begging p {
+            font-size: 16px;
+            margin: 0 0 15px;
+        }
+        #star-begging .close {
+            cursor: pointer;
+            position: absolute;
+            top: 12px;
+            right: 15px;
+        }
+    </style>
+    <p>Did you find Jvm-Brotli Helpful?<br/> If yes, please star us on Github!</p>
+    <span class="close">✖</span>
+    <iframe id="starFrame" class="githubStar" title="github-stars"
+            src="https://ghbtns.com/github-btn.html?user=nixxcode&amp;repo=jvm-brotli&amp;type=star&amp;count=false&size=large"
+            frameborder="0" scrolling="0" width="150px" height="30px">
+    </iframe>
+    <script>
+        if (localStorage.getItem("dismissed") !== "true") {
+            setTimeout(function () {
+                document.querySelector("#star-begging").classList.add("in");
+            }, 15000);
+            document.querySelector("#star-begging .close").addEventListener("click", function () {
+                document.querySelector("#star-begging").classList.add("out");
+                localStorage.setItem("dismissed", "true");
+            });
+        }
+    </script>
+</div>

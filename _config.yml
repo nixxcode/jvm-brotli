@@ -1,6 +1,12 @@
+jvmbrotliversion: 0.2.0
+repourl: https://github.com/nixxcode/jvm-brotli
+description: Javalin - A lightweight Java and Kotlin web framework. Create REST APIs in Java or Kotlin easily.
+baseurl: "" # the subpath of your site, e.g. /blog
+
+# Build settings
+markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
 plugins:
-  - jekyll-relative-links
-relative_links:
-  enabled: true
-  collections: true
-theme: jekyll-theme-slate
+  - jekyll-sitemap

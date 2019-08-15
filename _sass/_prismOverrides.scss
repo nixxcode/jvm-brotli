@@ -1,0 +1,127 @@
+.highlighter-rouge {
+  margin: 10px 0;
+  position: relative;
+  overflow: auto;
+  pre {
+    margin: 0;
+    overflow: auto;
+    background: #30312a;
+    padding: 15px;
+    code {
+      float: left;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .comment {
+      font-size: 100%;
+    }
+  }
+}
+
+.smaller-code {
+  pre code {
+    font-size: 13px;
+  }
+}
+
+// Toolbar
+
+.toolbar {
+  @include noselect;
+}
+
+pre.code-toolbar {
+  position: initial;
+}
+
+pre.code-toolbar > .toolbar {
+  opacity: 1;
+  transition: none;
+  top: 0px;
+  right: 0px;
+}
+
+pre.code-toolbar > .toolbar a {
+  font-size: 13px;
+  padding: 1px 6px 3px;
+}
+
+pre.code-toolbar > .toolbar a,
+pre.code-toolbar > .toolbar button,
+pre.code-toolbar > .toolbar span {
+  display: inline-block;
+  padding: 2px 8px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0 5px 0 5px;
+  color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 0;
+  border-right: 0;
+  text-shadow: none;
+}
+
+// multi tab
+.multitab-code {
+  margin-top: 8px;
+  ul {
+    background: #30312a;
+    @include noselect;
+    border-radius: 5px 5px 0 0;
+    list-style: none;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0;
+    height: 28px;
+    li {
+      color: rgba(255, 255, 255, 0.45);
+      &:hover {
+        color: rgba(255, 255, 255, 0.65);
+      }
+      display: inline-block;
+      margin: 0;
+      cursor: pointer;
+      height: 28px;
+      line-height: 28px;
+      font-size: 13px;
+      padding: 0 10px;
+      + li {
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+  .highlighter-rouge {
+    margin: 0;
+  }
+  pre {
+    position: relative;
+    margin: 0;
+    overflow: auto;
+    background: #30312a;
+    padding: 15px;
+    code {
+      float: left;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  }
+}
+
+.multitab-code {
+  @for $i from 1 through 7 {
+    &[data-tab="#{$i}"] div[data-tab="#{$i}"] {
+      display: block;
+    }
+    &[data-tab="#{$i}"] li[data-tab="#{$i}"] {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  pre,
+  code {
+    font-size: 12px !important;
+    letter-spacing: -0.5px !important;
+  }
+}

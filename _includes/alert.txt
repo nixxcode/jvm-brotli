@@ -1,0 +1,73 @@
+#usage-survey {
+    position: relative;
+    padding: 10px 50px 10px 46px;
+    background: rgba($javalin-brand-primary, .075);
+    border: 1px solid rgba($javalin-brand-primary, .6);
+    border-radius: 5px;
+    font-size: 15px;
+    margin-top: -8px;
+    margin-bottom: 20px;
+    line-height: 30px;
+    a {
+        color: $javalin-brand-primary;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    .close {
+        color: rgba(0, 0, 0, 0.75);
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        top: 0;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+    }
+    .pulsating-circle {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        transform: translateX(-50%) translateY(-50%);
+        width: 20px;
+        height: 20px;
+        animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -.4s infinite;
+        background: $javalin-brand-primary;
+        border-radius: 10px;
+    }
+}
+
+@keyframes pulse-dot {
+    0% {
+        transform: scale(.8);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(.8);
+    }
+}
+
+{% if page.splash != true %}
+    <script>
+        const hasBeenDismissed = localStorage.getItem("survey-dismissed") === "true";
+        const pageLoadCount = parseInt(localStorage.getItem("page-load-count") || 0);
+        localStorage.setItem("page-load-count", (pageLoadCount + 1).toString());
+        if (!hasBeenDismissed && pageLoadCount > 2 && pageLoadCount < 20) {
+            document.write(`
+                <div id="usage-survey">
+                    <div class="pulsating-circle"></div>
+                    We've made a short <a href="https://docs.google.com/forms/d/e/1FAIpQLScVaZ9t7AdKBejGwS5m8otH7xdERSg2vqF7OrtvvYx8y_sr1g/viewform?usp=sf_link">survey</a>
+                    to find out more about Javalin users. If you have the time, please fill it out.
+                    <span class="close">✖</span>
+                </div>
+            `);
+            document.querySelector("#usage-survey .close").addEventListener("click", function () {
+                document.querySelector("#usage-survey").style.display = "none";
+                localStorage.setItem("survey-dismissed", "true");
+            });
+        }
+    </script>
+{% endif %}
