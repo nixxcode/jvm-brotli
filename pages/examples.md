@@ -18,6 +18,7 @@ You MUST call the following method at least once during your application's runti
 This static method call attempts to load the native Brotli library into the current JVM runtime when invoked for the first time. If loading succeeds, it silently returns true. If loading fails, it prints an exception to console and returns false. Subsequent calls only return true/false, depending if the original load attempt was successful or not. No further load attempts are made unless the application is restarted.
 <br/>
 <br/>
+<br/>
 ### Encoding a stream:
 ```java
 // Init file input and output
