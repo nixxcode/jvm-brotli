@@ -54,8 +54,9 @@ permalink: /
 		</div>
 		<div class="box">
 			<h3>Active</h3>
+			<p>
 				Both the project and this website are receiving regular updates.
-
+			</p>
 		</div>
 	</div>
 </div>

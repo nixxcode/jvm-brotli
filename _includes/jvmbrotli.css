@@ -190,6 +190,10 @@ div.highlighter-rouge + h3 {
     text-transform: none;
 }
 
+.boxes .box p {
+	margin-top: 0.25em;
+}
+
 @media (max-width: 480px) {
     .boxes .box {
         flex-basis: 100%;
