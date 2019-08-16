@@ -5,7 +5,7 @@ Jvm-Brotli is a Maven project that contains multiple modules. This sections aims
 This is the master or "meta" module for the project. It contains relevant project information, as well as build/publish rules that apply to all submodules.
 
 #### jvmbrotli (pom located in jvmbrotli directory)
-This module contains the Java code for the project. It's where the callable jvm-brotli methods live. Most of it is taken directly from the Brotli project on Github, only the native library loader is custom and the tests are modified to make use of said library loader.
+This module contains the Java code for the project. It's where the callable jvm-brotli methods live. Most of it is taken directly from the [Brotli](https://github.com/google/brotli) project on Github, only the native library loader is custom and the tests are modified to make use of said library loader.
 
 #### jvmbrotli-natives (pom located in natives directory)
 This is the "master" module for the individual native submodules. It contains profiles which are activated based on the operating system/architecture combination and activate only the os/arch submodule that corresponds to our platform.
@@ -27,6 +27,6 @@ The first two are universal. The C++ compiler tool chain will depend on your ope
 
 Once you have these pre-requisites installed, simply run `mvn package` from the project root.
 
-This will build both the Java and C++ code, and will copy the native library to classpath so it can be loaded and called from Java.
+This will build both the Java and C++ code, and will copy the compiled native library to classpath so it can be loaded and called from Java.
 
-Windows users will likely need to run the usual "vcvarsall.bat" (x86 or x64 depending on platform) in their cmd instance before running the above build command, as this temporarily sets Windows environment variables to allow for C++ compiling via command line. Failure to do this first will likely result in build errors with CMake complaining about missing compilers.
+**Windows users** will likely need to run the usual "vcvarsall.bat" (x86 or x64 depending on platform) in their cmd instance before running the above build command, as this temporarily sets Windows environment variables to allow for C++ compiling via command line. Failure to do this first will likely result in build errors with CMake complaining about missing compilers.
