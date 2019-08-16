@@ -1,33 +1,32 @@
 ---
 layout: default
-title: News
-rightmenu: false
-permalink: /news/
+title: News - Jvm-Brotli
+navlogo: true
+permalink: /news
 ---
-
-{% include newJavalinBanner.html %}
-
-<h1 class="no-margin-top">News</h1>
-Javalin is released frequently (once or twice a month). Follow us on [Twitter](https://twitter.com/javalin_io)
-or [Facebook](https://www.facebook.com/javalin.io) to get notified about new releases.
-
-{% assign newsposts = (site.posts | where: "category" , "news") | sort: 'date' | reverse %}
-
-<div class="posts-overview">
-    <ul class="post-list">
-        {% for post in newsposts %}
-            <li class="post-summary">
-                <a href="{{ post.url }}">
-                <h2>
-                     Javalin {{ post.version }} released
-                     <span class="date">
-                          <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
-                     </span>
-                </h2>
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.summary }}</p>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+<style>{% include landing.css %}</style>
+<br/>
+# News
+<br/>
+<div class="post">
+	<h3>Version 0.2.0 released:</h3>
+	<p class="date">08 August 2019</p>
 </div>
+BrotliLoader.loadBrotli() has been deprecated and replaced by a new method:
+```java
+	BrotliLoader.isBrotliAvailable();
+```
+This static method call attempts to load the native Brotli library into the current JVM runtime when invoked for the first time. If loading succeeds, it silently returns true. If loading fails, it prints an exception to console and returns false. Subsequent calls only return true/false, depending if the original load attempt was successful or not. No further load attempts are made unless the application is restarted.
+
+Additionally: 
+* Users should now get a clear error message if their platform or architecture are currently unsupported.
+* Example project has been added. See the [Examples](https://jvmbrotli.com/examples) page for details and a link.
+
+<br/>
+<div class="post">
+	<h3>Version 0.1.1 released:</h3>
+	<p class="date">03 August 2019</p>
+</div>
+Jvm-Brotli is officially live!
+<br/>
+<br/>

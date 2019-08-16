@@ -45,6 +45,20 @@ h2+p, h3+p, h4+p {
     margin-top: 0.25em;
 }
 
+.post {
+	vertical-align: middle;
+}
+
+.post .date {
+	float: right;
+	display: inline;
+	height: 30px;
+}
+
+.post h3 {
+	display: inline
+}
+
 .landing {
 	padding: 80px 20px;
 }
