@@ -39,7 +39,7 @@ main.width-limit {
 		<div class="box">
 			<h3>Cross-platform</h3>
 			<p>
-				Jvm-Brotli already supports Windows, Linux and Mac OSX. More systems to come soon.
+				Jvm-Brotli already supports Windows, Linux and Mac OSX. More systems coming soon.
 			</p>
 		</div>
 		<div class="box">
