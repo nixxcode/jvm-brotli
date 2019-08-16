@@ -5,9 +5,8 @@ navlogo: true
 permalink: /news
 ---
 <style>{% include landing.css %}</style>
-<br/>
+
 # News
-<br/>
 <div class="post">
 	<h3>Version 0.2.0 released:</h3>
 	<p class="date">08 August 2019</p>
@@ -22,11 +21,8 @@ Additionally:
 * Users should now get a clear error message if their platform or architecture are currently unsupported.
 * Example project has been added. See the [Examples](https://jvmbrotli.com/examples) page for details and a link.
 
-<br/>
 <div class="post">
 	<h3>Version 0.1.1 released:</h3>
 	<p class="date">03 August 2019</p>
 </div>
 Jvm-Brotli is officially live!
-<br/>
-<br/>

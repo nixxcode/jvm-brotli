@@ -5,20 +5,17 @@ navlogo: true
 permalink: /examples
 ---
 <style>{% include landing.css %}</style>
-<br/>
+
 # Examples
 The code snippets below should get you started. If you are looking for code that's ready to execute, we have an [example project](https://github.com/nixxcode/jvm-brotli-example) you can fork.
-<br/>
-<br/>
+
 ### Loading Jvm-Brotli:
 You MUST call the following method at least once during your application's runtime:
 ```java
 	BrotliLoader.isBrotliAvailable();
 ```
 This static method call attempts to load the native Brotli library into the current JVM runtime when invoked for the first time. If loading succeeds, it silently returns true. If loading fails, it prints an exception to console and returns false. Subsequent calls only return true/false, depending if the original load attempt was successful or not. No further load attempts are made unless the application is restarted.
-<br/>
-<br/>
-<br/>
+
 ### Encoding a stream:
 ```java
 // Init file input and output
@@ -41,8 +38,7 @@ while(read > -1) { // -1 means EOF
 brotliOutputStream.close();
 inFile.close();
 ```
-<br/>
-<br/>
+<p/>
 ### Decoding a stream:
 ```java
 // Init file input and output
@@ -62,5 +58,3 @@ while(read > -1) { // -1 means EOF
 brotliInputStream.close();
 outFile.close();
 ```
-<br/>
-<br/>

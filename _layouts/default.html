@@ -41,8 +41,14 @@
 				</ul>
 			</nav>
 		</header>
-    <main class="width-limit{% if page.rightmenu %} has-right-menu{% endif %}">
-        {{ content }}
+    <main class="width-limit">
+        {% if page.islanding %}
+			{{ content }}
+		{% else %}
+			<div class="container">
+				{{ content }}
+			</div>
+		{% endif %}
     </main>
     <footer>
 		<a href="/">Home</a>

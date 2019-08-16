@@ -45,6 +45,10 @@ h2+p, h3+p, h4+p {
     margin-top: 0.25em;
 }
 
+p+h3 {
+	margin-top: 1.2em;
+}
+
 .post {
 	vertical-align: middle;
 }
@@ -59,14 +63,11 @@ h2+p, h3+p, h4+p {
 	display: inline
 }
 
-.landing {
+.container {
 	padding: 80px 20px;
 }
 
-.container-width-limit {
-    max-width: 900px;
-    margin: 0 auto;
-}
+
 
 .blackpart ::selection {
     background: #027aa3;
@@ -75,10 +76,6 @@ h2+p, h3+p, h4+p {
 .blackpart {
     background: #262626;
 	color: White;
-}
-
-.blackpart.first {
-	padding: 0px 20px 80px;
 }
 
 .blackpart .multitab-code {
@@ -148,7 +145,7 @@ h2+p, h3+p, h4+p {
 
 .center img {
 	display: block;
-    margin: 0 auto;
+    margin: 0 auto 32px;
 }
 
 .landing-btn {

@@ -2,6 +2,7 @@
 layout: default
 title: Jvm-Brotli - Lightweight, cross-platform Java library for the Brotli compression format
 navlogo: false
+islanding: true
 permalink: /
 ---
 
@@ -10,22 +11,15 @@ permalink: /
 {% include widthOverride.css %}
 </style>
 
-<div class="landing blackpart first">
+<div class="container blackpart first">
     <div class="center">
-		<br/>
-		<br/>
-		<br/>
 		<img src="/img/jvm-brotli.png" alt="Jvm-Brotli" style="width:200px;height:200px;">
-		<br/>
-		<br/>
-		<br/>
-		<br/>
 		<h1>Lightweight, cross-platform Java library<br/>for the Brotli compression format</h1>
 		<a class="landing-btn" href="https://github.com/nixxcode/jvm-brotli"><strong>View on GitHub</strong></a>
     </div>
 </div>
 
-<div class ="landing whitepart">
+<div class ="container whitepart">
 	<h1>Why use Jvm-Brotli?</h1>
 	<div class="boxes">
 		<div class="box">
@@ -66,7 +60,7 @@ permalink: /
 	</div>
 </div>
 
-<div class="landing blackpart">
+<div class="container blackpart">
 	<h1>Adding Jvm-Brotli to your project is easy</h1>
 	{% include macros/jvmbrotliMavenDep.md %}
 	<div class="center">
@@ -78,8 +72,8 @@ permalink: /
 	</div>
 </div>
 
-<div class="landing whitepart">
-    <div class="container-width-limit">
+<div class="container whitepart">
+    <div class="width-limit">
 		<h1>What is the purpose of Jvm-Brotli?</h1>
 		<p>
 			Making Brotli usable in Java can be a tricky and time consuming exercise. The Brotli code is written in c/c++ and is platform dependent. This requires the use of JNI bindings.
