@@ -2,19 +2,6 @@ main {
     padding: 0;
 }
 
-header nav {
-    text-align: center;
-}
-
-header nav ul {
-    display: none;
-}
-
-main.width-limit {
-    max-width: 100%;
-    padding: 0;
-}
-
 header {
     position: absolute;
     border: 0;
@@ -30,92 +17,98 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: white;
+    color: rgba(244, 183, 69, 1);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+	text-align: center;
 }
 
 .landing {
 	padding: 80px 20px;
 }
 
-.landing h1 {
-    text-align: center;
-    font-weight: 500;
-    margin: 0;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+.container-width-limit {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-
-
-.bluepart ::selection {
+.blackpart ::selection {
     background: #027aa3;
 }
 
-.bluepart {
+.blackpart {
     background: #262626;
 	color: White;
 }
 
-.bluepart.first {
+.blackpart.first {
 	padding: 0px 20px 80px;
 }
 
-.bluepart .multitab-code {
+.blackpart .multitab-code {
     max-width: 520px;
     margin: 32px auto 0;
 }
 
-.bluepart .multitab-code ul {
+.blackpart .multitab-code ul {
     background: rgba(0, 0, 0, 0.30);
 	border: 0px;
 }
 
-.bluepart .multitab-code ul li {
+.blackpart .multitab-code ul li {
 	border: 0px;
 }
 
-.bluepart .multitab-code pre {
+.blackpart .multitab-code pre {
     background: rgba(0, 0, 0, 0.15);
 }
 
-.bluepart .multitab-code pre code {
+.blackpart .multitab-code pre code {
     line-height: 1.4;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-.bluepart .multitab-code pre code .token.number {
+.blackpart .multitab-code pre code .token.number {
     color: #ffbbea;
 }
 
-.bluepart .multitab-code pre code .token.function {
+.blackpart .multitab-code pre code .token.function {
     color: #ffe200;
 }
 
-.bluepart .multitab-code pre code .token.string {
+.blackpart .multitab-code pre code .token.string {
     color: #9be800;
 }
 
-.bluepart .multitab-code pre code .token.keyword {
+.blackpart .multitab-code pre code .token.keyword {
     color: #54e3ff;
 }
 
-.bluepart .multitab-code pre code .token.comment {
+.blackpart .multitab-code pre code .token.comment {
     color: #a0bedc;
 }
 
-.bluepart .multitab-code span .token.tag {
+.blackpart .multitab-code span .token.tag {
 	color: yellow;
 }
 
-.bluepart h1 {
+.blackpart h1 {
 	color: white;
 }
 
-.bluepart > p {
+.blackpart > p {
     text-align: center;
     color: white;
 }
 
-.bluepart > p > a {
+.blackpart > p > a {
     color: white;
     text-decoration: underline;
 }
@@ -126,7 +119,7 @@ nav ul li a:hover {
 
 .center img {
 	display: block;
-    margin: 25px auto;
+    margin: 0 auto;
 }
 
 .landing-btn {
@@ -148,7 +141,7 @@ nav ul li a:hover {
     padding: 20px;
     display: flex;
     max-width: 900px;
-    margin: 0 auto 0;
+    margin: 0 auto;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -174,7 +167,7 @@ nav ul li a:hover {
         flex-basis: 100%;
     }
 
-    .bluepart {
+    .blackpart {
         padding: 40px 20px;
     }
 }
@@ -209,7 +202,7 @@ nav ul li a:hover {
 
 @media (max-width: 480px) {
 
-    .bluepart h1,
+    .blackpart h1,
     .whitepart h1 {
         font-size: 7.5vw;
     }

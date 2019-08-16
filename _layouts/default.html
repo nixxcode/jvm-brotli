@@ -29,18 +29,18 @@
 </head>
 <body>
 		<header>
-			<nav class="width-limit">
-			{% if page.navbar %}	
-				<a id="logo" href="/" aria-label="Jvm-Brotli">
-					<img src="/img/jvm-brotli.png" alt="Jvm-Brotli">
-				</a>
+			<nav class="width-limit">	
+				{% if page.navlogo %}
+					<a id="logo" href="/" aria-label="Jvm-Brotli">
+						<img src="/img/jvm-brotli.png" alt="Jvm-Brotli">
+					</a>
+				{% endif %}
 				<ul>
-					<li><a href="/download">Download</a></li>
-					<li><a href="/documentation">Docs</a></li>
-					<li><a href="/tutorials">Tutorials</a></li>
+					<li><a href="/">Home</a></li>
 					<li><a href="/news">News</a></li>
+					<li><a href="/examples">Examples</a></li>
+					<li><a href="https://github.com/nixxcode/jvm-brotli">Github</a></li>
 				</ul>
-			{% endif %}
 			</nav>
 		</header>
     <main class="width-limit{% if page.rightmenu %} has-right-menu{% endif %}">
