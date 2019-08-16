@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Examples - Jvm-Brotli
 navlogo: true
 permalink: /examples
 ---
@@ -10,6 +11,8 @@ permalink: /examples
 # Examples
 <br/>
 ### Loading Jvm-Brotli:
+<br/>
+You MUST call the following method at least once during your application's runtime:
 ```java
 	BrotliLoader.isBrotliAvailable();
 ```
@@ -59,3 +62,5 @@ while(read > -1) { // -1 means EOF
 brotliInputStream.close();
 outFile.close();
 ```
+<br/>
+<br/>

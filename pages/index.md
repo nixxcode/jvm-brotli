@@ -1,15 +1,13 @@
 ---
 layout: default
+title: Jvm-Brotli - Lightweight, cross-platform Java library for the Brotli compression format
 navlogo: false
 permalink: /
 ---
 
 <style>
 {% include landing.css %}
-main.width-limit {
-	max-width: 100%;
-	padding: 0;
-}
+{% include widthOverride.css %}
 </style>
 
 <div class="landing blackpart first">
@@ -46,6 +44,18 @@ main.width-limit {
 			<h3>No C/C++</h3>
 			<p>
 				Handles the cross-platform compiling of C/C++ code, so you don't have to.
+			</p>
+		</div>
+		<div class="box">
+			<h3>Semantic versioning</h3>
+			<p>
+				Adheres to <a href="https://semver.org">semver</a>, meaning updates won't break your code unexpectedly.
+			</p>
+		</div>
+		<div class="box">
+			<h3>Active</h3>
+			<p>
+				Both the project and this website are receiving regular updates.
 			</p>
 		</div>
 	</div>
