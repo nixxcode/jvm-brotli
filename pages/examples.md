@@ -4,14 +4,13 @@ title: Examples - Jvm-Brotli
 navlogo: true
 permalink: /examples
 ---
-
 <style>{% include landing.css %}</style>
-
 <br/>
 # Examples
+The code snippets below should get you started. If you are looking for code that's ready to execute, we have an [example project](https://github.com/nixxcode/jvm-brotli-example) you can clone.
+<br/>
 <br/>
 ### Loading Jvm-Brotli:
-<br/>
 You MUST call the following method at least once during your application's runtime:
 ```java
 	BrotliLoader.isBrotliAvailable();

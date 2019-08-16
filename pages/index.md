@@ -54,9 +54,8 @@ permalink: /
 		</div>
 		<div class="box">
 			<h3>Active</h3>
-			<p>
 				Both the project and this website are receiving regular updates.
-			</p>
+
 		</div>
 	</div>
 </div>
@@ -76,7 +75,6 @@ permalink: /
 <div class="landing whitepart">
     <div class="container-width-limit">
 		<h1>What is the purpose of Jvm-Brotli?</h1>
-		<br/>
 		<p>
 			Making Brotli usable in Java can be a tricky and time consuming exercise. The Brotli code is written in c/c++ and is platform dependent. This requires the use of JNI bindings.
 		</p>
