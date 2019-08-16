@@ -108,7 +108,7 @@ outFile.close();
 ```
 
 ## Project Structure & Build Instructions
-Please see [PROJECT_STRUCTURE.md]()
+Please see [PROJECT_STRUCTURE.md](https://github.com/nixxcode/jvm-brotli/blob/master/PROJECT_STRUCTURE.md)
 
 ## Contributing
 First of all, thank you for your interest in Jvm-Brotli! 
