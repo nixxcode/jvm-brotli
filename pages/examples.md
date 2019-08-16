@@ -38,7 +38,7 @@ while(read > -1) { // -1 means EOF
 brotliOutputStream.close();
 inFile.close();
 ```
-<p/>
+
 ### Decoding a stream:
 ```java
 // Init file input and output

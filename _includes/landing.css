@@ -46,28 +46,31 @@ h2+p, h3+p, h4+p {
 }
 
 p+h3 {
-	margin-top: 1.2em;
+	margin-top: 2.4em;
 }
 
-.post {
+div.highlighter-rouge + h3 {
+	margin-top: 2.4em;
+}
+
+.post-header {
 	vertical-align: middle;
+	margin-top: 6.4em;
 }
 
-.post .date {
+.post-header .date {
 	float: right;
 	display: inline;
 	height: 30px;
 }
 
-.post h3 {
+.post-header h3 {
 	display: inline
 }
 
 .container {
 	padding: 80px 20px;
 }
-
-
 
 .blackpart ::selection {
     background: #027aa3;
