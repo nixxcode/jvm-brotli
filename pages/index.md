@@ -12,7 +12,9 @@ permalink: /
 
 <div class="landing blackpart first">
     <div class="center">
+		<br/>
 		<img src="/img/jvm-brotli.png" alt="Jvm-Brotli" style="width:200px;height:200px;">
+		<br/>
 		<br/>
 		<h1>Lightweight, cross-platform Java library<br/>for the Brotli compression format</h1>
 		<a class="landing-btn" href="https://github.com/nixxcode/jvm-brotli"><strong>View on GitHub</strong></a>
