@@ -4,7 +4,7 @@ title: Examples - Jvm-Brotli
 navlogo: true
 permalink: /examples
 ---
-<style>{% include landing.css %}</style>
+<style>{% include jvmbrotli.css %}</style>
 
 # Examples
 The code snippets below should get you started. If you are looking for code that's ready to execute, we have an [example project](https://github.com/nixxcode/jvm-brotli-example) you can fork.

@@ -7,7 +7,7 @@ permalink: /
 ---
 
 <style>
-{% include landing.css %}
+{% include jvmbrotli.css %}
 {% include widthOverride.css %}
 </style>
 

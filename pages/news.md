@@ -4,7 +4,7 @@ title: News - Jvm-Brotli
 navlogo: true
 permalink: /news
 ---
-<style>{% include landing.css %}</style>
+<style>{% include jvmbrotli.css %}</style>
 
 # News
 <div class="post-header">

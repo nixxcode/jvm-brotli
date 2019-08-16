@@ -4,7 +4,7 @@ title: License - Jvm-Brotli
 navlogo: true
 permalink: /license
 ---
-<style>{% include landing.css %}</style>
+<style>{% include jvmbrotli.css %}</style>
 
 # License
 Google Brotli and corresponding Java code are licensed under the [MIT License](https://opensource.org/licenses/MIT)

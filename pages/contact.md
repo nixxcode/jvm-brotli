@@ -4,7 +4,7 @@ title: Contact - Jvm-Brotli
 navlogo: true
 permalink: /contact
 ---
-<style>{% include landing.css %}</style>
+<style>{% include jvmbrotli.css %}</style>
 
 # Contact
 If you wish to get in touch for any reason (questions, bug reports, feature requests, etc.), please head over to the [issue tracker](https://github.com/nixxcode/jvm-brotli/issues) and open a new issue with your enquiry.
