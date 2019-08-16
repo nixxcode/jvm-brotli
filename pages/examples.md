@@ -7,7 +7,7 @@ permalink: /examples
 <style>{% include landing.css %}</style>
 <br/>
 # Examples
-The code snippets below should get you started. If you are looking for code that's ready to execute, we have an [example project](https://github.com/nixxcode/jvm-brotli-example) you can clone.
+The code snippets below should get you started. If you are looking for code that's ready to execute, we have an [example project](https://github.com/nixxcode/jvm-brotli-example) you can fork.
 <br/>
 <br/>
 ### Loading Jvm-Brotli:
