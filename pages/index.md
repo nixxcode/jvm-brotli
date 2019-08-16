@@ -13,7 +13,11 @@ permalink: /
 <div class="landing blackpart first">
     <div class="center">
 		<br/>
+		<br/>
+		<br/>
 		<img src="/img/jvm-brotli.png" alt="Jvm-Brotli" style="width:200px;height:200px;">
+		<br/>
+		<br/>
 		<br/>
 		<br/>
 		<h1>Lightweight, cross-platform Java library<br/>for the Brotli compression format</h1>
